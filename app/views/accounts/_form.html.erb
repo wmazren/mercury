@@ -1,0 +1,21 @@
+<%= simple_form_for(@account, :html => { :class => 'form-horizontal' }) do |f| %>
+  <div class="inputs">
+    <h3>Account Details:</h3>
+    <%= f.input :name, :placeholder => 'company or organization name', :required => true, :autofocus => true %>
+    <%= f.input :subdomain, :placeholder => 'subdomain', :hint => 'http://subdomain.example.com', :required => true %>    
+    <%= f.fields_for :users do |users_form| %>
+      <h3>Contact Details:</h3>
+      <%= users_form.input :username, :placeholder => 'used for login in', :required => true %>
+      <%= users_form.input :first_name, :placeholder => 'John', :required => true %>
+      <%= users_form.input :last_name, :placeholder => 'Doe', :required => true %>
+      <%= users_form.input :email, :placeholder => 'youremail@example.com', :required => true %>
+      <%= users_form.input :password, :placeholder => 'minimum 6 alpanumeric characters', :required => true %>
+      <%= users_form.input :password_confirmation, :placeholder => 'please confirm your password', :required => true %>
+      <%= users_form.hidden_field :role, :value => "admin" %>
+    <% end %>
+  </div>
+  
+  <div class="form-actions">
+    <%= f.button :submit, "Get started", :class => 'btn btn-success' %>
+  </div>
+<% end %>

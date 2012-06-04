@@ -1,0 +1,23 @@
+<%- model_class = @period.class -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => t('helpers.titles.edit', :model => model_class.model_name.human,
+                                   :default => "Edit #{model_class.model_name.human}") %></h1>
+</div>
+
+<%= simple_form_for(@period, :html => { :class => 'form-horizontal' }) do |f| %>
+  <div class="inputs">
+      <%= f.input :name, 
+                  :input_html => { :class => "span4" }, 
+                  :placeholder => 'example: Performance review 2012', 
+                  :required => true, :autofocus => true %>
+      <%= f.input :start_date, :placeholder => 'mm/dd/yyyy', :required => true %>
+      <%= f.input :end_date, :placeholder => 'mm/dd/yyyy', :required => true %>
+      <%= f.input :state, :as => :radio_buttons, :required => true, :collection => [ "active", "closed" ] %>
+  </div>
+  
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                periods_path, :class => 'btn' %>
+  </div>
+<% end %>

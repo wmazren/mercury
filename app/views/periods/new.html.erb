@@ -1,0 +1,4 @@
+<%- model_class = @period.class -%>
+<h1><%=t '.title', :default => t('helpers.titles.new', :model => model_class.model_name.human,
+                               :default => "Create New #{model_class.model_name.human}") %></h1><br>
+<%= render :partial => 'form' %>

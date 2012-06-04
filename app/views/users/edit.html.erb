@@ -1,0 +1,25 @@
+<%- model_class = @user.class -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => t('helpers.titles.edit', :model => model_class.model_name.human,
+                                   :default => "Edit #{model_class.model_name.human}") %></h1>
+</div>
+
+<%= simple_form_for(@user, :html => { :class => 'form-horizontal' }) do |f| %>
+  <div class="inputs">
+    <h3>User Details:</h3>
+      <%= f.input :username, :required => true, :autofocus => true %>
+      <%= f.input :first_name, :required => true %>
+      <%= f.input :last_name, :required => true %>
+      <%= f.input :email, :required => true %>
+      <%= f.input :role, :as => :radio_buttons, :required => true, :collection => [ "admin", "member" ], :selected => "Member" %>
+      <%= f.input :position_supervisor %>
+      <%= f.input :state, :as => :radio_buttons, :required => true, :collection => [ "active", "disabled" ] %>
+      <%= f.association :supervisor, :label_method => :email, :prompt => "Choose a Supevisor" %>
+  </div>
+  
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                users_path, :class => 'btn' %>
+  </div>
+<% end %>

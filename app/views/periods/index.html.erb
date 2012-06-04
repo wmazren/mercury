@@ -1,0 +1,38 @@
+<h1>All Periods</h1><br>
+
+<table class="table table-striped">
+  <thead>
+	  <tr>
+	    <th>ID</th>
+		  <th>Period Name</th>
+		  <th>Start Date</th>
+		  <th>End Date</th>
+		  <th>Active</th>
+		  <th>Account</th>
+		  <th>Action</th>
+		  <th></th>
+		  <th></th>
+	  </tr>
+  </thead>
+  <tbody>
+	  <% @periods.each do |period| %>
+	  <tr>
+	    <td><%= period.id %></td>
+	    <td><%= period.name %></td>
+		  <td><%=l period.start_date %></td>
+		  <td><%=l period.end_date %></td>
+		  <td><%= period.state %></td>
+		  <td><%= period.account.name %></td>
+		  <td>
+		    <%= link_to "Show", period_path(period), :class => 'btn btn-mini' %>
+		    <%= link_to "Edit", edit_period_path(period), :class => 'btn btn-mini' %>
+		    <%= link_to 'Destroy', period, confirm: 'Are you sure?', method: :delete, :class => 'btn btn-mini btn-danger' %>			    
+		  </td>
+	  </tr>
+	  <% end %>
+  </tbody>
+</table>
+
+<div class="form-actions">
+  <%= link_to "Create New Period", new_period_path, :class => 'btn btn-primary' %>
+<div>

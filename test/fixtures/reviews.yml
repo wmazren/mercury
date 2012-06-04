@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  subordinate_comments: MyText
+  supervisor_comments: MyText
+  rating: MyString
+  final_comments: MyText
+  state: MyString
+  user_id: 1
+  period_id: 1
+  account_id: 1
+
+two:
+  subordinate_comments: MyText
+  supervisor_comments: MyText
+  rating: MyString
+  final_comments: MyText
+  state: MyString
+  user_id: 1
+  period_id: 1
+  account_id: 1

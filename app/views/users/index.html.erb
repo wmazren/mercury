@@ -1,0 +1,42 @@
+<h1>All Users</h1><br>
+
+<%= form_tag create_reviews_users_path do %>
+  <table class="table table-striped">
+	  <thead>
+		  <tr>
+		    <th>First Name</th>
+			  <th>Last Name</th>
+			  <th>Username</th>
+			  <th>Email</th>
+			  <th>State</th>
+			  <th>Role</th>
+			  <th>Select</th>
+			  <th>Action</th>
+		  </tr>
+	  </thead>
+	  <tbody>
+		  <% @users.each do |user| %>
+		  <tr>
+		    <td><%= link_to user.first_name, user_path(user) %></td>
+			  <td><%= user.last_name %></td>
+			  <td><%= user.username %></td>
+			  <td><%= user.email %></td>
+			  <td><%= user.state %></td>
+			  <td><%= user.role %></td>
+			  <th><%= check_box_tag "user_ids[]", user.id %></th>
+			  <td>
+			    <%= link_to "Edit", edit_user_path(user), :class => 'btn btn-mini' %>
+			    <%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete, :class => 'btn btn-mini btn-danger' %>			    
+			  </td>
+		  </tr>
+		  <% end %>
+	  </tbody>
+  </table>
+  
+  <div class="form-actions">
+    <%= link_to "New User", new_user_path, :class => 'btn btn-primary' %>
+    <%= submit_tag "Create Reviews", :class => 'btn btn-warning' %>
+  </div>
+<% end %>
+
+

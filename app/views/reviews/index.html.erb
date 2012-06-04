@@ -1,0 +1,30 @@
+<h1>All Reviews</h1>
+
+<table class="table table-striped">
+  <thead>
+	  <tr>
+	    <th>ID</th>
+		  <th>User</th>
+		  <th>Period</th>
+		  <th>Status</th>
+		  <th>Action</th>
+		  <th></th>
+		  <th></th>
+	  </tr>
+  </thead>
+  <tbody>
+	  <% @reviews.each do |review| %>
+	  <tr>
+	    <td><%= review.id %></td>
+	    <td><%= review.user.email %></td>
+		  <td><%= review.period.name %></td>
+		  <td><%= review.state %></td>
+		  <td>
+		    <%= link_to 'Show', review, :class => 'btn btn-mini' %>
+		    <%= link_to "Edit", edit_review_path(review), :class => 'btn btn-mini' %>
+		    <%= link_to 'Destroy', review, confirm: 'Are you sure?', method: :delete, :class => 'btn btn-mini btn-danger' %>			    
+		  </td>
+	  </tr>
+	  <% end %>
+  </tbody>
+</table>

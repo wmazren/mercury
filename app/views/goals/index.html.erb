@@ -1,0 +1,37 @@
+<h1>All Goals</h1><br>
+
+<table class="table table-striped">
+  <thead>
+	  <tr>
+	    <th>Goal</th>
+	    <th>% Complete</th>
+	    <th>Status</th>
+		  <th>Start Date</th>
+		  <th>Due Date</th>
+		  <th>Action</th>
+	  </tr>
+  </thead>
+  <tbody>
+	  <% @goals.each do |goal| %>
+	  <tr>
+	    <td>
+	      <strong><%= link_to goal.title, goal_path(goal) %></strong><br>
+	      <p><%= truncate goal.description, length: 50 %></p>
+	    </td>
+	    <td><%= number_to_percentage(goal.progress.percent_complete, :precision => 0) %></td>
+	    <td><%= goal.progress.state %></td>
+		  <td><%=l goal.start_date %></td>
+		  <td><%=l goal.due_date %></td>
+		  <td>
+		    <%= link_to "Edit", edit_goal_path(goal) %><br>
+		    <%= link_to 'Progress', edit_progress_path(goal.progress) %><br>
+		    <%= link_to 'Destroy', goal, confirm: 'Are you sure?', method: :delete %>			    
+		  </td>
+	  </tr>
+	  <% end %>
+  </tbody>
+</table>
+
+<div class="form-actions">
+  <%= link_to "New Goal", new_goal_path, :class => 'btn btn-primary' %>
+<div>
