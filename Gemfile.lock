@@ -71,6 +71,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.18)
     multi_json (1.3.6)
+    mysql2 (0.3.11)
     orm_adapter (0.0.7)
     paper_trail (2.6.3)
       activerecord (~> 3.0)
@@ -115,7 +116,6 @@ GEM
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sqlite3 (1.3.6)
     state_machine (1.1.2)
     therubyracer (0.10.1)
       libv8 (~> 3.3.10)
@@ -151,12 +151,12 @@ DEPENDENCIES
   devise
   hirb
   jquery-rails
+  mysql2
   paper_trail
   quiet_assets
   rails (= 3.2.3)
   sass-rails (~> 3.2.3)
   simple_form
-  sqlite3
   state_machine
   thin
   twitter-bootstrap-rails
