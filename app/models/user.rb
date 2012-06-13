@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   belongs_to :supervisor, :class_name => "User"
   
   validates :account, :presence => true
+  # validates :period, :presence => true
   validates :username, :first_name, :last_name, :presence => true
   validates :username, :uniqueness => true
   

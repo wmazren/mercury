@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       flash[:notice] = "User created"
-      redirect_to @user
+      redirect_to users_path
     else
       render 'new'
     end
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   end
   
   def update
-    @position_supervisors = User.where(params[:position_supervisor])
+    # @position_supervisors = User.where(params[:position_supervisor])
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
       flash[:notice] = "Successfully updated user."

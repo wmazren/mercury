@@ -10,7 +10,6 @@
 			  <th>Email</th>
 			  <th>State</th>
 			  <th>Role</th>
-			  <th>Select</th>
 			  <th>Action</th>
 		  </tr>
 	  </thead>
@@ -23,8 +22,8 @@
 			  <td><%= user.email %></td>
 			  <td><%= user.state %></td>
 			  <td><%= user.role %></td>
-			  <th><%= check_box_tag "user_ids[]", user.id %></th>
 			  <td>
+			    <%= check_box_tag "user_ids[]", user.id %>
 			    <%= link_to "Edit", edit_user_path(user), :class => 'btn btn-mini' %>
 			    <%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete, :class => 'btn btn-mini btn-danger' %>			    
 			  </td>

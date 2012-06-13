@@ -21,7 +21,7 @@ class GoalsController < ApplicationController
     @progress.user_id = @goal.user_id
     if @goal.save
       flash[:notice] = "Goal created"
-      redirect_to @goal
+      redirect_to goals_path
     else
       render 'new'
     end

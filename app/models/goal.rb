@@ -5,5 +5,8 @@ class Goal < ActiveRecord::Base
   
   validates :title, :start_date, :due_date, :presence => true
   
+  state_machine :state, :initial => :open do
+  end
+  
   attr_accessible :description, :due_date, :review_id, :start_date, :state, :title, :user_id
 end

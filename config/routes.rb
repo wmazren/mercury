@@ -1,5 +1,11 @@
 Mercury::Application.routes.draw do
-  devise_for :users, :path_prefix => 'd'
+  devise_for :users, :path_prefix => 'd', :skip => [:sessions]
+  as :user do
+    get 'login' => 'devise/sessions#new', :as => :new_user_session
+    post 'login' => 'devise/sessions#create', :as => :user_session
+    match 'logout' => 'devise/sessions#destroy', :as => :destroy_user_session,
+      :via => Devise.mappings[:user].sign_out_via
+  end
   
   resources :users do
     collection do
@@ -7,6 +13,8 @@ Mercury::Application.routes.draw do
       post 'create_reviews'
     end
   end
+  
+  resources :dashboards, :only => [:index]
   
   resources :accounts
   resources :periods

@@ -11,6 +11,7 @@ class Ability
       can :manage, Review, :account_id => user.account_id
       can :manage, Goal, :user_id => user.id
       can :manage, Progress, :user_id => user.id
+      can :manage, Dashboard
     end
     
     if user.role == "member"
@@ -18,7 +19,9 @@ class Ability
       can :manage, Review, :user_id => user.id
       can :manage, Goal, :user_id => user.id
       can :manage, Progress, :user_id => user.id
+      can :manage, Dashboard
     end
+    
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)

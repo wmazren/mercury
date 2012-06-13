@@ -14,7 +14,7 @@
       <%= f.input :role, :as => :radio_buttons, :required => true, :collection => [ "admin", "member" ], :selected => "Member" %>
       <%= f.input :position_supervisor %>
       <%= f.input :state, :as => :radio_buttons, :required => true, :collection => [ "active", "disabled" ] %>
-      <%= f.association :supervisor, :label_method => :email, :prompt => "Choose a Supevisor" %>
+      <%= f.association :supervisor, :collection => User.where(:account_id => current_user.account_id), :label_method => :email, :prompt => "Choose a Supevisor" %>
   </div>
   
   <div class="form-actions">
