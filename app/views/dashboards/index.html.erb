@@ -4,26 +4,18 @@
 
 <div class="row">
   <div class="span9">
-    <h2>Heading</h2>
+    <% if user_signed_in? %>
+      <% if current_user.role == "admin" %>
+        <%= render 'dashboards/admin_dashboard' %>
+      <% else %>
+        <%= render 'dashboards/user_dashboard' %>
+      <% end %>
+    <% end %>
+    <% if current_user.sign_in_count == 0 %>
+      <%= render 'dashboards/first_time' %>
+    <% end %>
   </div>
   <div class="span3">
-    <div class="well">
-      <dl class="dl-horizontal">
-        <h2>Upcoming Reveiw</h2>
-        <h4><%= @period %></h4><br>
-        <dt>Days left:</dt>
-        <dd><%= (@end_date - DateTime.now).to_i %></dd>
-        
-        <h2>My Goals</h2>
-        <dt>Goals:</dt>
-        <dd><%= @goals_total %></dd>
-        <dt>Open:</dt>
-        <dd><%= @goals_open %></dd>
-        <dt>Closed:</dt>
-        <dd><%= @goals_closed %></dd>
-        <dt>In Progress:</dt>
-        <dd><%= @goals_in_progress %></dd>
-      </dl>
-    </div>
+    <%= render 'dashboards/sidebar' %>
   </div>
 </div>

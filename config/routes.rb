@@ -1,4 +1,7 @@
 Mercury::Application.routes.draw do
+  get "static/pricing"
+  get "static/features"
+
   devise_for :users, :path_prefix => 'd', :skip => [:sessions]
   as :user do
     get 'login' => 'devise/sessions#new', :as => :new_user_session
