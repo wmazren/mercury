@@ -13,9 +13,8 @@ gem 'devise'
 gem 'cancan'
 gem "paper_trail"
 gem 'state_machine'
-gem 'thin', :group => :development
+gem 'hirb'
 gem 'quiet_assets', :group => :development
-gem 'hirb', :group => :development
 gem 'wirble', :group => :development
 
 # Gems used only for assets and not required
