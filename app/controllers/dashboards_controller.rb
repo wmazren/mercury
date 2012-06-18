@@ -9,6 +9,8 @@ class DashboardsController < ApplicationController
     @review = Review.find_by_user_id_and_state(current_user, 'open')
     @review_id = Review.find_by_user_id_and_state(current_user, 'open')
     @period_get = Period.find_by_account_id_and_state(@account, 'open')
+    # check period for rendering first_time
+    @period_for_first_time = Period.find(:all, :conditions => { :account_id => current_user.account_id, :state => 'active' }).count
         
     if @review.nil?
       @end_date = DateTime.now
