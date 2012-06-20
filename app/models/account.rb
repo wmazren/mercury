@@ -6,9 +6,16 @@ class Account < ActiveRecord::Base
   validates :name, :subdomain, :presence => true, :uniqueness => true
   validates_format_of :subdomain, with: /^[a-z0-9_]+$/, message: "must be lowercase alphanumerics only"
   validates_length_of :subdomain, maximum: 32, message: "exceeds maximum of 32 characters"
-  validates_exclusion_of :subdomain, in: ['www', 'mail', 'ftp'], message: "is not available"
+  # validates_exclusion_of :subdomain, in: ['www', 'mail', 'ftp'], message: "is not available"
   
   accepts_nested_attributes_for :users
   
   attr_accessible :name, :subdomain, :users_attributes
+  
+  RESERVED_SUBDOMAINS = %w(
+    www manage admin assets files mail docs calendar sites
+    ftp git ssl support status blog api staging demo lab
+  )
+  validates_exclusion_of :subdomain, :in => RESERVED_SUBDOMAINS,
+                         :message => "Subdomain %{value} is reserved."
 end

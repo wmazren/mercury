@@ -14,6 +14,7 @@ gem 'cancan'
 gem "paper_trail"
 gem 'state_machine'
 gem 'hirb'
+gem 'thin', :group => :development
 gem 'quiet_assets', :group => :development
 gem 'wirble', :group => :development
 
