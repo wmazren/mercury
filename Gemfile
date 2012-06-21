@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.3'
+gem 'rails', '3.2.6'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -14,6 +14,7 @@ gem 'cancan'
 gem "paper_trail"
 gem 'state_machine'
 gem 'hirb'
+gem 'brakeman', :group => :developement
 # gem 'thin', :group => :development
 gem 'quiet_assets', :group => :development
 gem 'wirble', :group => :development
