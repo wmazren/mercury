@@ -15,7 +15,7 @@ gem "paper_trail"
 gem 'state_machine'
 gem 'hirb'
 gem 'brakeman', :group => :developement
-# gem 'thin', :group => :development
+gem 'thin', :group => :development
 gem 'quiet_assets', :group => :development
 gem 'wirble', :group => :development
 

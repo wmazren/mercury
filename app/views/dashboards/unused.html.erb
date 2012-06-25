@@ -1,0 +1,40 @@
+<div class="page-header">
+  <div class="row">
+    <div class="span12">
+      <h1>User Dashboard</h1>
+    </div>
+    <% if @account_balance > 0 %>
+      <div class="span1 btn btn-primary" style="text-align:center">
+        <h1><%= @account_balance %></h1>
+        <small>User quota</small>
+      </div>
+    <% else %>
+      <div class="span1 btn btn-danger" style="text-align:center">
+        <h1><%= @account_balance %></h1>
+        <small>User quota</small>
+      </div>
+    <% end %>
+    <% if @account_balance > 0 %>
+      <div class="span1 btn btn-primary" style="text-align:center">
+        <h1><%= @account_balance %></h1>
+        <small>User quota</small>
+      </div>
+    <% else %>
+      <div class="span1 btn btn-danger" style="text-align:center">
+        <h1><%= @account_balance %></h1>
+        <small>User quota</small>
+      </div>
+    <% end %>
+    <% if @account_balance > 0 %>
+      <div class="span1 btn btn-primary" style="text-align:center">
+        <h1><%= @account_balance %></h1>
+        <small>User quota</small>
+      </div>
+    <% else %>
+      <div class="span1 btn btn-danger" style="text-align:center">
+        <h1>45</h1>
+        <small>days expire</small>
+      </div>
+    <% end %>
+  </div>
+</div>

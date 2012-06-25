@@ -13,13 +13,13 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def create
+  def create    
     @user = User.new(params[:user])
     if @user.save
       flash[:notice] = "User created"
       redirect_to users_path
     else
-      render 'new'
+      redirect_to users_path, alert: 'You have reached your limit of user.'
     end
   end
 

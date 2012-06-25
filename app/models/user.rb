@@ -12,6 +12,9 @@ class User < ActiveRecord::Base
   validates :username, :first_name, :last_name, :presence => true
   validates :username, :uniqueness => true
   
+  validate :account_has_quota
+  before_create :decrement_quota_count
+  
   state_machine :initial => 'active' do
     event 'disable' do
       transition 'active' => 'disabled'
@@ -28,4 +31,16 @@ class User < ActiveRecord::Base
                   :username, :first_name, :last_name, :role, :account_id, :state,
                   :position_supervisor, :supervisor_id
   # attr_accessible :title, :body
+  
+  private
+  
+  def account_has_quota
+    unless account.user_limit > 0
+      errors[:base] << 'You have reached your limit of user.'
+  end
+  
+  def decrement_quota_count
+    account.decrement! :user_limit
+  end
+end
 end

@@ -1,9 +1,5 @@
-<div class="page-header">
-  <h1>User Dashboard</h1>
-</div>
-
 <div class="row">
-  <div class="span9">
+  <div class="span12">
     <% if user_signed_in? %>
       <% if current_user.role == "admin" %>
         <% if @period_for_first_time <= 0 %>
@@ -16,7 +12,7 @@
       <% end %>
     <% end %>
   </div>
-  <div class="span3">
-    <%= render 'dashboards/sidebar' %>
-  </div>
+<!--  <div class="span3">-->
+<!--    <%= render 'dashboards/sidebar' %>-->
+<!--  </div>-->
 </div>

@@ -8,9 +8,11 @@ class Account < ActiveRecord::Base
   validates_length_of :subdomain, maximum: 32, message: "exceeds maximum of 32 characters"
   # validates_exclusion_of :subdomain, in: ['www', 'mail', 'ftp'], message: "is not available"
   
+  after_create :decrement_quota_count
+  
   accepts_nested_attributes_for :users
   
-  attr_accessible :name, :subdomain, :users_attributes
+  attr_accessible :name, :subdomain, :user_limit, :activated_at, :users_attributes
   
   RESERVED_SUBDOMAINS = %w(
     www manage admin assets files mail docs calendar sites
@@ -18,4 +20,10 @@ class Account < ActiveRecord::Base
   )
   validates_exclusion_of :subdomain, :in => RESERVED_SUBDOMAINS,
                          :message => "Subdomain %{value} is reserved."
+  
+  private
+  
+  def decrement_quota_count
+    self.decrement! :user_limit
+  end
 end

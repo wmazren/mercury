@@ -1,1 +1,79 @@
-<h2>this is for user<h2>
+<div class="page-header">
+<h2>User Dashboard</h2>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <div class="widget widget-nopad">
+	    <div class="widget-header">
+		    <i class="icon-list-alt"></i>
+		    <h3>My Goals</h3>
+	    </div> <!-- /widget-header -->
+	
+	    <div class="widget-content">
+		    <ul class="news-items">
+		      <% @goals.each do |goal| %>
+		      <li>
+				    <div class="news-item-detail">										
+					    <a <%= link_to "Edit Goal", edit_goal_path(goal) %></a>
+					    <p class="news-item-preview"><%= truncate goal.description, length: 200 %></p>
+				    </div>
+				
+				    <div class="news-item-date">
+					    <span class="news-item-day"><%=l goal.due_date %></span>
+					    <span class="news-item-month"><%=l goal.start_date %></span>
+				    </div>
+			    </li>
+			    <li>
+		        <%= link_to 'Update Progress', edit_progress_path(goal.progress), :class => 'btn btn-mini btn-warning' %>
+		        <%= link_to 'Delete Goal', goal, confirm: 'Are you sure?', method: :delete, :class => 'btn btn-mini btn-danger' %>
+			    </li>
+			    <% end %>
+		    </ul>
+	    </div> <!-- /widget-content -->
+    </div> <!-- /widget -->	
+  </div> <!-- /span8 -->
+  	
+  <div class="span4">
+    <div class="widget">
+		  <div class="widget-header">
+			  <i class="icon-bookmark"></i>
+			  <h3>Quick Shortcuts</h3>
+		  </div> <!-- /widget-header -->
+		
+		  <div class="widget-content">
+			  <div class="shortcuts">
+				  <a href="#" class="shortcut">
+					  <i class="shortcut-icon icon-list-alt"></i>
+					  <span class="shortcut-label">Apps</span>
+				  </a>
+				
+				  <a href="#" class="shortcut">
+					  <i class="shortcut-icon icon-bookmark"></i>
+					  <span class="shortcut-label">Bookmarks</span>								
+				  </a>
+				
+				  <a href="#" class="shortcut">
+					  <i class="shortcut-icon icon-signal"></i>
+					  <span class="shortcut-label">Reports</span>	
+				  </a>
+				
+				  <a href="#" class="shortcut">
+					  <i class="shortcut-icon icon-comment"></i>
+					  <span class="shortcut-label">Comments</span>								
+				  </a>
+				
+				  <a href="#" class="shortcut">
+					  <i class="shortcut-icon icon-user"></i>
+					  <span class="shortcut-label">Users</span>
+				  </a>
+				
+				  <a href="#" class="shortcut">
+					  <i class="shortcut-icon icon-file"></i>
+					  <span class="shortcut-label">Notes</span>	
+				  </a>		
+			  </div> <!-- /shortcuts -->	
+		  </div> <!-- /widget-content -->
+	  </div> <!-- /widget -->		
+  </div> <!-- /span4 -->
+</div> <!-- /row -->

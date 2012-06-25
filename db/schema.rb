@@ -11,13 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120530033957) do
+ActiveRecord::Schema.define(:version => 20120621071117) do
 
   create_table "accounts", :force => true do |t|
-    t.string   "name",       :default => "", :null => false
-    t.string   "subdomain",  :default => "", :null => false
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.string   "name",         :default => "", :null => false
+    t.string   "subdomain",    :default => "", :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.integer  "user_limit"
+    t.datetime "activated_at"
   end
 
   add_index "accounts", ["name"], :name => "index_accounts_on_name", :unique => true

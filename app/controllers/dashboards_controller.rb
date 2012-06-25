@@ -34,5 +34,28 @@ class DashboardsController < ApplicationController
     @goals_closed = Goal.find(:all, :conditions => { :user_id => current_user, :review_id => @review_id, :state => 'closed' }).count
     @goals_in_progress = Goal.find(:all, :conditions => { :user_id => current_user, :review_id => @review_id, :state => 'in progress' }).count
     
+    @account_balance = Account.find_by_id(@account).user_limit
+    @account_expires = Account.find_by_id(@account).activated_at
+  end
+  
+  def edit
+    @goal = Goal.find(params[:id])
+  end
+  
+  def update
+    @goal = Goal.find(params[:id])
+    if @goal.update_attributes(params[:goal])
+      flash[:notice] = "Successfully updated goal."
+      redirect_to goals_url
+    else
+      render :action => 'edit'
+    end
+  end
+  
+  def destroy
+    @goal = Goal.find(params[:id])
+    @goal.destroy
+    flash[:notice] = "Successfully destroyed goal."
+    redirect_to goals_url
   end
 end
