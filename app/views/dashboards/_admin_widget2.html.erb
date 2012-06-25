@@ -13,14 +13,29 @@
 			  </tr>
 		  </thead>
 			<tbody>
+			  <% if @period_for_first_time <= 0 %>
+				  <tr>
+					  <td>You dont have a period defined. Please create one by clicking <%= link_to "here", new_period_path %>.</td>
+					  <td class="td-actions">
+						  <a href="javascript:;" class="btn btn-small btn-success">
+							  <i class="btn-icon-only icon-ok"></i>										
+						  </a>
+						
+						  <a href="javascript:;" class="btn btn-small btn-danger">
+							  <i class="btn-icon-only icon-remove"></i>										
+						  </a>
+					  </td>
+				  </tr>
+				<% end %>
+				
 				<tr>
-					<td>Trident</td>
+					<td>You have user that does not have review.</td>
 					<td class="td-actions">
-						<a href="javascript:;" class="btn btn-small btn-warning">
+						<a href="javascript:;" class="btn btn-small btn-success">
 							<i class="btn-icon-only icon-ok"></i>										
 						</a>
 						
-						<a href="javascript:;" class="btn btn-small">
+						<a href="javascript:;" class="btn btn-small btn-danger">
 							<i class="btn-icon-only icon-remove"></i>										
 						</a>
 					</td>

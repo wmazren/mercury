@@ -2,11 +2,12 @@
   <div class="span12">
     <% if user_signed_in? %>
       <% if current_user.role == "admin" %>
-        <% if @period_for_first_time <= 0 %>
-          <%= render 'dashboards/first_time' %>
-        <% else %>
-          <%= render 'dashboards/admin_dashboard' %>
-      <% end %>
+        <%= render 'dashboards/admin_dashboard' %>
+<!--        <% if @period_for_first_time <= 0 %>-->
+<!--          <%= render 'dashboards/first_time' %>-->
+<!--        <% else %>-->
+<!--          <%= render 'dashboards/admin_dashboard' %>-->
+<!--        <% end %>-->
       <% else %>
         <%= render 'dashboards/user_dashboard' %>
       <% end %>

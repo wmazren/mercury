@@ -19,7 +19,7 @@ class PeriodsController < ApplicationController
     @period.account_id = current_user.account_id
     if @period.save
       flash[:notice] = "Period created"
-      redirect_to periods_path
+      redirect_to dashboards_path
     else
       redirect_to periods_path, alert: 'Unable to create new Period. An active Period still exist'
     end
