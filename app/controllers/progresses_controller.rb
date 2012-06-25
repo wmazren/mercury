@@ -10,7 +10,7 @@ class ProgressesController < ApplicationController
     @progress = Progress.find(params[:id])
     if @progress.update_attributes(params[:progress])
       flash[:notice] = "Successfully updated progress."
-      redirect_to goals_url
+      redirect_to dashboards_path
     else
       render :action => 'edit'
     end
