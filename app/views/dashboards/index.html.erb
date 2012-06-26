@@ -3,17 +3,9 @@
     <% if user_signed_in? %>
       <% if current_user.role == "admin" %>
         <%= render 'dashboards/admin_dashboard' %>
-<!--        <% if @period_for_first_time <= 0 %>-->
-<!--          <%= render 'dashboards/first_time' %>-->
-<!--        <% else %>-->
-<!--          <%= render 'dashboards/admin_dashboard' %>-->
-<!--        <% end %>-->
       <% else %>
         <%= render 'dashboards/user_dashboard' %>
       <% end %>
     <% end %>
   </div>
-<!--  <div class="span3">-->
-<!--    <%= render 'dashboards/sidebar' %>-->
-<!--  </div>-->
 </div>
