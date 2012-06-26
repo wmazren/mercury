@@ -1,13 +1,50 @@
-<h2>Sign in to Neptune</h2><br>
+<!--<h2>Sign in to Neptune</h2><br>-->
 
-<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'form-horizontal' }) do |f| %>
-  <div class="inputs">
-    <%= f.input :username, :required => false, :autofocus => true, :placeholder => 'username' %>
-    <%= f.input :password, :required => false, :placeholder => 'password' %>
-    <%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
-  </div>
+<!--<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'form-horizontal' }) do |f| %>-->
+<!--  <div class="inputs">-->
+<!--    <%= f.input :username, :required => false, :autofocus => true, :placeholder => 'username' %>-->
+<!--    <%= f.input :password, :required => false, :placeholder => 'password' %>-->
+<!--    <%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>-->
+<!--  </div>-->
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign in", :class => 'btn-primary' %>
-  </div>
-<% end %>
+<!--  <div class="form-actions">-->
+<!--    <%= f.button :submit, "Sign in", :class => 'btn-primary' %>-->
+<!--  </div>-->
+<!--<% end %>-->
+
+<div class="account-container">
+	<div class="content clearfix">
+	  <h1>Sign In</h1>
+	  
+		<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+					
+			
+			<div class="login-fields">
+				<p>Sign in using your registered account:</p>
+				
+				<div class="field">
+				  <%= f.input :username, :required => false, :autofocus => true, :placeholder => 'username', :input_html => { :class => 'login username-field' } %>
+				</div> <!-- /field -->
+				
+				<div class="field">
+				  <%= f.input :password, :required => false, :placeholder => 'password', :input_html => { :class => 'login password-field' } %>
+				</div> <!-- /password -->
+				
+			</div> <!-- /login-fields -->
+			
+			<div class="login-actions">
+<!--				<span class="login-checkbox">-->
+<!--					<input id="Field" name="Field" type="checkbox" class="field login-checkbox" value="First Choice" tabindex="4" />-->
+<!--					<label class="choice" for="Field">Keep me signed in</label>-->
+<!--				</span>-->
+<!--        <span class="login-checkbox">-->
+<!--				  <%= f.input :remember_me, :inline_label => 'Yes, remember me', :as => :boolean if devise_mapping.rememberable? %>-->
+<!--				</span>-->
+				<%= f.button :submit, "Sign in", :class => 'button btn btn-warning btn-large' %>
+				
+				
+			</div> <!-- .actions -->
+			
+		<% end %>
+	</div> <!-- /content -->
+</div> <!-- /account-container -->
